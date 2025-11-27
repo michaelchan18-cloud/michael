@@ -3,369 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael Chan (陳桂楠) Complete Bilingual Bio</title>
+    <title>Michael Chan (陳桂楠) Biography</title>
     <style>
-        /* Base Reset */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Arial', 'Microsoft JhengHei', '微軟正黑體', sans-serif; 
-            padding: 25px; 
-            background-color: #f7f7f7;
+        .tab-container {
+            margin-bottom: 20px;
         }
-
-        /* Container */
-        .bio-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 18px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-            overflow: hidden;
-        }
-
-        /* Top Language Tabs (New Color) */
-        .lang-tabs {
-            display: flex;
-            background-color: #1a202c; /* Dark base */
-        }
-        .lang-tab {
-            flex: 1;
-            padding: 20px 0;
+        .tab-button {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
             border: none;
-            background: transparent;
-            color: #cbd5e1;
-            font-size: 18px;
-            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
+            background-color: #f1f1f1;
+            margin-right: 5px;
+            border-radius: 4px 4px 0 0;
         }
-        .lang-tab.active {
-            background-color: #f97316; /* New Primary Color: Orange */
+        .tab-button.active {
+            background-color: #4CAF50;
             color: white;
-            box-shadow: inset 0 -4px 0 #ea580c;
         }
-        .lang-tab:hover:not(.active) {
-            background-color: #2d3748;
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 0 4px 4px 4px;
         }
-
-        /* Table Styles (New Two-Color Scheme) */
+        .tab-content.active {
+            display: block;
+        }
         .bio-table {
             width: 100%;
             border-collapse: collapse;
+            margin-bottom: 15px;
         }
-        .table-header {
-            padding: 18px 22px;
-            font-size: 16px;
+        .bio-table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+        .bio-table .left-col {
+            width: 25%;
             font-weight: bold;
-            text-align: left;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: white;
         }
-        .header-1 {
-            background-color: #f97316; /* Primary: Orange */
-            width: 30%;
+        .bio-table .right-col {
+            width: 75%;
         }
-        .header-2 {
-            background-color: #2563eb; /* Secondary: Deep Blue */
-        }
-
-        /* Table Rows & Cells */
-        .table-row {
-            transition: background-color 0.25s ease;
-        }
-        .table-row:nth-child(even) {
-            background-color: #fff7ed; /* Light Orange Variant */
-        }
-        .table-row:nth-child(odd) {
-            background-color: #eff6ff; /* Light Blue Variant */
-        }
-        .table-row:hover {
-            background-color: #ffedd5; /* Hover Accent */
-            transform: scale(1.003);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.09);
-        }
-        .table-cell {
-            padding: 18px 22px;
-            border-bottom: 1px solid #e5e7eb;
-            font-size: 15px;
-            line-height: 1.6;
-        }
-        .cell-category {
-            font-weight: 600;
-            color: #1e293b;
-            border-right: 1px solid #e5e7eb;
-        }
-        .cell-details {
-            color: #2d3748;
-        }
-
-        /* Content Visibility */
-        .tab-panel {
-            display: none;
-        }
-        .tab-panel.active {
-            display: table;
-        }
-
-        /* Links & Highlights */
-        .bio-link {
-            color: #2563eb;
+        .color1 { background-color: #e3f2fd; } /* Light blue */
+        .color2 { background-color: #e8f5e9; } /* Light green */
+        .color3 { background-color: #fff3e0; } /* Light orange */
+        .color4 { background-color: #f3e5f5; } /* Light purple */
+        .color5 { background-color: #e0f2f1; } /* Light teal */
+        .color6 { background-color: #fff8e1; } /* Light amber */
+        .color7 { background-color: #fce4ec; } /* Light pink */
+        a {
+            color: #2196F3;
             text-decoration: none;
-            border-bottom: 2px dashed #2563eb;
-            transition: all 0.2s ease;
         }
-        .bio-link:hover {
-            color: #1d4ed8;
-            border-bottom: 2px solid #1d4ed8;
-        }
-        .highlight-text {
-            font-weight: 600;
-            color: #f97316;
-        }
-
-        /* PDF Download Section (New Color) */
-        .download-section {
-            padding: 18px 22px;
-            background-color: #fafafa;
-            border-top: 1px solid #e5e7eb;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 30px;
-            background-color: #2563eb; /* Secondary: Deep Blue */
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .download-btn:hover {
-            background-color: #1d4ed8;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.25);
-        }
-        .download-btn svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .lang-tab {
-                font-size: 15px;
-                padding: 16px 0;
-            }
-            .table-header, .table-cell {
-                padding: 14px 16px;
-                font-size: 14px;
-            }
-            .header-1 {
-                width: 35%;
-            }
-            .download-btn {
-                padding: 10px 25px;
-                font-size: 15px;
-            }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="bio-container">
-        <!-- Top Language Tabs -->
-        <div class="lang-tabs">
-            <button class="lang-tab active" data-panel="english-panel">English</button>
-            <button class="lang-tab" data-panel="chinese-panel">Traditional Chinese (繁體中文)</button>
-        </div>
+    <div class="tab-container">
+        <button class="tab-button active" onclick="switchTab('english')">English</button>
+        <button class="tab-button" onclick="switchTab('chinese')">Chinese Traditional</button>
+    </div>
 
-        <!-- English Tab Content (Exact PDF Details) -->
-        <table class="bio-table tab-panel active" id="english-panel">
-            <thead>
-                <tr>
-                    <<th class="table-header header-1">Category</</th>
-                    <<th class="table-header header-2">Details</</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">Full Name</td>
-                    <td class="table-cell cell-details">Chan Kwai Nam Michael</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">Contact Information</td>
-                    <td class="table-cell cell-details">
-                        +852 9360 6681<br>
-                        michael@icetechhk.com<br>
-                        <a href="https://www.linkedin.com/in/chan-michael-69499036" target="_blank" class="bio-link">https://www.linkedin.com/in/chan-michael-69499036</a>
-                    </td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">Education</td>
-                    <td class="table-cell cell-details">Graduated from the University of Technology Sydney in 2008 with a Master's degree in Engineering Management</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">Industry Experience</td>
-                    <td class="table-cell cell-details">Over 37 years of experience in the consumer electronic product industry. Has developed hundreds of products with suppliers in mainland China and Southeast Asia countries for the US consumer electronic market.</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">Key Distribution Role</td>
-                    <td class="table-cell cell-details">Exclusive distributor of Top Boss International Co. Ltd., a professional AI-driven Business Management Simulation provider in the Asia market.</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">Simulation Platform Application</td>
-                    <td class="table-cell cell-details">Top Boss International's platform has been widely applied in China, Taiwan and Southeast Asia countries with over 500 Universities.</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">Events & Competitions</td>
-                    <td class="table-cell cell-details">Has organized notable local and International Business Management Simulation Competitions and case competitions in Hong Kong since 2019, with thousands of students participating in his training and competitions.</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">Founder & Leadership Roles</td>
-                    <td class="table-cell cell-details">
-                        - Founder of Icetech Hong Kong Company Limited<br>
-                        - Founder of Icetech Education<br>
-                        - Founding President of International Association of Business Management Simulation (IABMS)
-                    </td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">IABMS Status</td>
-                    <td class="table-cell cell-details">NGO registered under section 88 of the Companies Ordinance since June 2023</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">Core Mission & Vision</td>
-                    <td class="table-cell cell-details">Dedicated to weaving diversity, equality, and inclusion into the core of business education—grounding learning in tangible real-world challenges to prepare learners for inclusive leadership in today’s global marketplace. Provides an AI-driven simulation platform that delivers a dynamic, risk-free virtual business environment: users can experiment with a range of strategies to see how their decisions shape business performance and cross-team collaboration effectiveness. Closes the gap between classroom theory and on-the-job practice, sharpening key professional competencies—strategic foresight, flexibility, and ethical decision-making—all designed to empower learners to unlock their full professional potential and thrive confidently in an increasingly diverse, interconnected global economy.</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">University Collaborations (HK)</td>
-                    <td class="table-cell cell-details">Has collaborated with different Universities in delivering training programs and applications since 2019 till now: HKUST, CUHK, HKBU, CityU, PolyU, EDUHK, HKMU and IVE Kwun Tong.</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">Long-Term Commitment</td>
-                    <td class="table-cell cell-details">Over the years, he has evolved to meet the needs of education transformation through innovative and creative simulation platforms in various business categories. Passionate about advancing education, enhancing learning ability, exploring students’ talent, and nurturing young people to become future entrepreneurs.</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">Official Website</td>
-                    <td class="table-cell cell-details"><a href="https://www.intabms.org" target="_blank" class="bio-link">www.intabms.org</a></td>
-                </tr>
-            </tbody>
+    <!-- English Tab Content -->
+    <div id="english" class="tab-content active">
+        <table class="bio-table">
+            <tr>
+                <td class="left-col color1">Full Name</td>
+                <td class="right-col">Chan Kwai Nam Michael</td>
+            </tr>
+            <tr>
+                <td class="left-col color2">Contact Information</td>
+                <td class="right-col">
+                    +852 9360 6681<br>
+                    michael@icetechhk.com<br>
+                    <a href="https://www.linkedin.com/in/chan-michael-69499036" target="_blank">LinkedIn Profile</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="left-col color3">Education Background</td>
+                <td class="right-col">Master's degree in Engineering Management, University of Technology Sydney (Graduated in 2008)</td>
+            </tr>
+            <tr>
+                <td class="left-col color4">Industry Experience</td>
+                <td class="right-col">Over 37 years in consumer electronic product industry. Developed hundreds of products with suppliers in mainland China and SE Asia countries for US consumer electronic market.</td>
+            </tr>
+            <tr>
+                <td class="left-col color5">Key Partnerships</td>
+                <td class="right-col">Exclusive distributor of Top Boss International Co. Ltd. (AI-driven Business Management Simulation provider with platform applied in China, Taiwan, SE Asia and partnered with over 500 Universities)</td>
+            </tr>
+            <tr>
+                <td class="left-col color6">Major Initiatives</td>
+                <td class="right-col">
+                    - Organized local and International Business Management Simulation Competition and case competition in HK since 2019 (thousands of student participants)<br>
+                    - Founded Icetech Hong Kong Company Limited, Icetech Education<br>
+                    - Founding President of International Association of Business Management Simulation (IABMS) - NGO registered under section 88 since Jun 2023
+                </td>
+            </tr>
+            <tr>
+                <td class="left-col color7">Core Mission</td>
+                <td class="right-col">Dedicate to weaving diversity, equality, and inclusion into the core of business education— grounding learning in tangible real-world challenges to prepare learners for inclusive leadership in today’s global marketplace. To bring this vision to life, provide an AI-driven simulation platform that delivers a dynamic, risk-free virtual business environment (where users can experiment with a range of strategies on how their decisions shape business performance and cross-team collaboration effectiveness); close the gap between classroom theory and on-the-job practice to sharpen key professional competencies— strategic foresight, flexibility, and ethical decision-making—all designed to empower learners to unlock their full professional potential and thrive confidently in an increasingly diverse, interconnected global economy.</td>
+            </tr>
+            <tr>
+                <td class="left-col color1">University Collaborations</td>
+                <td class="right-col">HKUST, CUHK, HKBU, CityU, PolyU, EDUHK, HKMU, IVE Kwun Tong (2019 - Present)</td>
+            </tr>
+            <tr>
+                <td class="left-col color2">Website</td>
+                <td class="right-col"><a href="https://www.intabms.org" target="_blank">www.intabms.org</a></td>
+            </tr>
         </table>
+    </div>
 
-        <!-- Traditional Chinese Tab Content (Exact PDF Details) -->
-        <table class="bio-table tab-panel" id="chinese-panel">
-            <thead>
-                <tr>
-                    <<th class="table-header header-1">類別</</th>
-                    <<th class="table-header header-2">詳細資料</</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">全名</td>
-                    <td class="table-cell cell-details">陳桂楠 (Michael Chan)</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">聯絡方式</td>
-                    <td class="table-cell cell-details">
-                        +852 9360 6681<br>
-                        michael@icetechhk.com<br>
-                        <a href="https://www.linkedin.com/in/chan-michael-69499036" target="_blank" class="bio-link">https://www.linkedin.com/in/chan-michael-69499036</a>
-                    </td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">教育背景</td>
-                    <td class="table-cell cell-details">於2008年畢業於雪梨科技大學，取得工程管理碩士學位</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">行業經驗</td>
-                    <td class="table-cell cell-details">在消費性電子產品產業擁有超過37年的經驗，曾與中國大陸和東南亞國家的供應商合作開發數百種產品，並銷往美國消費性電子市場。</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">核心分銷角色</td>
-                    <td class="table-cell cell-details">特波國際股份有限公司的獨家經銷商，該公司是亞洲市場專業的AI驅動型商業管理模擬供應商。</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">模擬平台應用</td>
-                    <td class="table-cell cell-details">特波國際的平台已在中國大陸、台灣及東南亞國家廣泛應用，並與超過500所大學建立合作關係。</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">活動與競賽</td>
-                    <td class="table-cell cell-details">自2019年起在香港舉辦了許多知名的本地及國際商業管理模擬競賽和案例競賽，吸引了數千名學生參與相關培訓及競賽。</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">創始人及領導職務</td>
-                    <td class="table-cell cell-details">
-                        - 創科發展香港有限公司創始人<br>
-                        - 科創教育創始人<br>
-                        - 國際模擬商業管理學會 (IABMS) 創始主席
-                    </td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">IABMS 身份</td>
-                    <td class="table-cell cell-details">自2023年6月起依據《公司法》第88條註冊為非政府組織 (NGO)</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">核心使命與願景</td>
-                    <td class="table-cell cell-details">致力於將多元化、平等和包容融入商業教育的核心——將學習與現實世界的實際挑戰相結合，從而培養學員在當今全球市場中成為包容性領導者的能力。開發了一個由人工智慧驅動的模擬平台，提供了一個動態且無風險的虛擬商業環境：使用者可以在這裡嘗試各種策略，了解他們的決策如何影響業務績效和跨團隊協作效率。該工具彌合了課堂理論與實際工作之間的差距，提升了關鍵的專業能力——戰略遠見、靈活性和道德決策——旨在幫助學員充分發揮職業潛能，並在日益多元化、相互關聯的全球經濟中自信地取得成功。</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">香港大學合作夥伴</td>
-                    <td class="table-cell cell-details">自2019年至今，與多所香港大學合作提供培訓課程及應用：香港科技大學、香港中文大學、香港浸信會大學、香港城市大學、香港理工大學、香港教育大學、香港都會大學及觀塘國際教育學院。</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">長期承諾</td>
-                    <td class="table-cell cell-details">多年來，他不斷發展，致力於透過創新和創意模擬平台，滿足不同商業領域教育轉型的需求。熱衷於推動教育發展，提升學生學習能力，挖掘學生的潛能，培養年青人成為未來的企業家。</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="table-cell cell-category">官方網站</td>
-                    <td class="table-cell cell-details"><a href="https://www.intabms.org" target="_blank" class="bio-link">www.intabms.org</a></td>
-                </tr>
-            </tbody>
+    <!-- Chinese Traditional Tab Content -->
+    <div id="chinese" class="tab-content">
+        <table class="bio-table">
+            <tr>
+                <td class="left-col color1">姓名</td>
+                <td class="right-col">陳桂楠</td>
+            </tr>
+            <tr>
+                <td class="left-col color2">聯絡方式</td>
+                <td class="right-col">
+                    +852 9360 6681<br>
+                    michael@icetechhk.com<br>
+                    <a href="https://www.linkedin.com/in/chan-michael-69499036" target="_blank">LinkedIn 個人頁面</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="left-col color3">教育背景</td>
+                <td class="right-col">雪梨科技大學工程管理碩士學位（2008年畢業）</td>
+            </tr>
+            <tr>
+                <td class="left-col color4">產業經驗</td>
+                <td class="right-col">消費性電子產品產業超過37年經驗，曾與中國大陸及東南亞國家供應商合作開發數百種產品，銷往美國消費性電子市場。</td>
+            </tr>
+            <tr>
+                <td class="left-col color5">主要合作夥伴</td>
+                <td class="right-col">特波國際股份有限公司獨家經銷商（AI驅動型商業管理模擬供應商，平台已應用於中國大陸、台灣及東南亞國家，與超過500所大學合作）</td>
+            </tr>
+            <tr>
+                <td class="left-col color6">重要事業</td>
+                <td class="right-col">
+                    - 自2019年起在香港舉辦知名本地及國際商業管理模擬競賽與案例競賽（數千名學生參與）<br>
+                    - 創立創科發展香港有限公司及科創教育<br>
+                    - 國際模擬商業管理學會（IABMS）創始主席，該學會自2023年6月起依《公司法》第88條註冊為非政府組織
+                </td>
+            </tr>
+            <tr>
+                <td class="left-col color7">核心使命</td>
+                <td class="right-col">致力於將多元化、平等和包容融入商業教育的核心—將學習與現實世界的實際挑戰相結合，從而培養學員在當今全球市場中成為包容性領導者的能力。為了實現這個願景，開發一個由人工智慧驅動的模擬平台，提供動態且無風險的虛擬商業環境（使用者可在此嘗試各種策略，了解自身決策如何影響業務績效和跨團隊協作效率）；彌合課堂理論與實際工作之間的差距，提升關鍵的專業能力——戰略遠見、靈活性和道德決策——旨在幫助學員充分發揮職業潛能，並在日益多元化、相互關聯的全球經濟中自信地取得成功。</td>
+            </tr>
+            <tr>
+                <td class="left-col color1">大學合作</td>
+                <td class="right-col">香港科技大學、香港中文大學、香港浸信會大學、香港城市大學、香港理工大學、香港教育大學、香港都會大學、觀塘國際教育學院（2019年至今）</td>
+            </tr>
+            <tr>
+                <td class="left-col color2">網站</td>
+                <td class="right-col"><a href="https://www.intabms.org" target="_blank">www.intabms.org</a></td>
+            </tr>
         </table>
-
-        <!-- PDF Download Section -->
-        <div class="download-section">
-            <button class="download-btn" id="pdf-download">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
-                </svg>
-                下載完整履歷 PDF / Download Full Bio PDF
-            </button>
-        </div>
     </div>
 
     <script>
-        // Tab Switching Logic
-        const tabs = document.querySelectorAll('.lang-tab');
-        const panels = document.querySelectorAll('.tab-panel');
+        function switchTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
 
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Remove active state from all
-                tabs.forEach(t => t.classList.remove('active'));
-                panels.forEach(p => p.classList.remove('active'));
+            // Deactivate all tab buttons
+            const tabButtons = document.getElementsByClassName("tab-button");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
 
-                // Activate selected tab and panel
-                tab.classList.add('active');
-                const targetPanel = tab.getAttribute('data-panel');
-                document.getElementById(targetPanel).classList.add('active');
-            });
-        });
-
-        // PDF Download Functionality
-        const downloadBtn = document.getElementById('pdf-download');
-        const pdfUrl = 'https://tos-cn-i-ik7evvg4ik/ee6777fae6014b6982a077b4e60828ce.pdf';
-
-        downloadBtn.addEventListener('click', () => {
-            window.open(pdfUrl, '_blank');
-        });
+            // Activate selected tab
+            document.getElementById(tabName).classList.add("active");
+            event.currentTarget.classList.add("active");
+        }
     </script>
 </body>
 </html>
