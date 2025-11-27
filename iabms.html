@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Association of Business Management Simulation Bilingual Report</title>
+    <style>
+        /* 整體樣式 */
+        body {
+            font-family: 'Microsoft JhengHei', 'Arial', sans-serif;
+            line-height: 1.8;
+            margin: 25px;
+            background-color: #f5f8ff;
+            color: #333;
+        }
+        /* 英文頁眉樣式 - 單獨配色 */
+        .main-header {
+            text-align: center;
+            margin-bottom: 35px;
+            padding: 20px;
+            background: linear-gradient(135deg, #6366f1, #4f46e5); /* 頁眉紫藍漸變色 */
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .main-header h1 {
+            font-size: 28px;
+            margin: 0 0 10px;
+        }
+        .main-header p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin: 0;
+        }
+        /* 標籤頁容器 */
+        .tab-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        /* 語言選擇標籤 - 不同顏色區分 */
+        .tab-buttons {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #e0e7ff;
+            padding-bottom: 5px;
+        }
+        .tab-btn {
+            padding: 15px 40px;
+            border: none;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        /* 繁體中文標籤色（淺青綠） */
+        #tc-tab-btn {
+            background-color: #60a5fa;
+            color: white;
+        }
+        #tc-tab-btn:hover:not(.active) {
+            background-color: #4299e1;
+        }
+        /* 英文標籤色（淺橙） */
+        #en-tab-btn {
+            background-color: #f97316;
+            color: white;
+        }
+        #en-tab-btn:hover:not(.active) {
+            background-color: #ea580c;
+        }
+        .tab-btn.active {
+            box-shadow: 0 -3px 6px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        /* 內容頁樣式 */
+        .tab-content {
+            display: none;
+            padding: 30px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+        }
+        .tab-content.active {
+            display: block;
+        }
+        /* 表格樣式 - 頂列（標題列）與右列（內容列）不同顏色 */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+        /* 表格頂列（標題列）- 單獨深綠色 */
+        th {
+            padding: 18px 25px;
+            text-align: left;
+            font-weight: 700;
+            color: white;
+            background-color: #10b981; /* 頂列深綠色 */
+            border-bottom: 3px solid #d1fae5;
+            font-size: 19px;
+        }
+        /* 表格左列（分類列）- 淺綠色 */
+        td:first-child {
+            width: 25%;
+            background-color: #f0fdf4; /* 左列淺綠色 */
+            color: #065f46; /* 左列文字深綠色 */
+            font-weight: 600;
+            padding: 18px 25px;
+            border-right: 2px solid #d1fae5;
+            font-size: 17px;
+        }
+        /* 表格右列（內容列）- 淺紫色（與頂列顏色區分） */
+        td:last-child {
+            background-color: #faf5ff; /* 右列淺紫色 */
+            color: #5b21b6; /* 右列文字深紫色 */
+            padding: 18px 25px;
+            font-size: 17px;
+        }
+        /* 行懸停效果 - 強化視覺互動 */
+        tr:hover td:first-child {
+            background-color: #dcfce7; /* 左列懸停深淺綠 */
+        }
+        tr:hover td:last-child {
+            background-color: #f3e8ff; /* 右列懸停深淺紫 */
+        }
+        /* 列表樣式優化 */
+        ul {
+            margin: 12px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+        /* 連結樣式 */
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px dotted #3b82f6;
+        }
+        a:hover {
+            color: #2563eb;
+            border-bottom: 2px solid #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <!-- 英文頁眉（Header in English） -->
+    <div class="main-header">
+        <h1>International Association of Business Management Simulation</h1>
+        <p>Bilingual Report (Traditional Chinese / English)</p>
+    </div>
+
+    <div class="tab-container">
+        <!-- 語言選擇標籤（不同顏色） -->
+        <div class="tab-buttons">
+            <button id="tc-tab-btn" class="tab-btn active" onclick="switchTab('tc-tab', this)">繁體中文 (Traditional Chinese)</button>
+            <button id="en-tab-btn" class="tab-btn" onclick="switchTab('en-tab', this)">English</button>
+        </div>
+
+        <!-- 繁體中文內容頁 - 表格頂列（深綠）、右列（淺紫）配色 -->
+        <div id="tc-tab" class="tab-content active">
+            <table>
+                <tr>
+                    <th>項目分類</th> <!-- 頂列：深綠色 -->
+                    <th>詳細內容</th> <!-- 頂列：深綠色 -->
+                </tr>
+                <tr>
+                    <td>組織基本資訊</td> <!-- 左列：淺綠色 -->
+                    <td> <!-- 右列：淺紫色 -->
+                        <ul>
+                            <li>組織名稱（Company Name）：International Association of Business Management Simulation（國際模擬商業管理學會）</li>
+                            <li>成立日期：2022年8月1日</li>
+                            <li>創辦單位/人員：創科香港有限公司（Icetech HK Company Limited）、科創教育（Icetech Education）創辦人陳桂楠先生（Mr. Chan Kwai Nam Michael），及5所香港大學的12名學生</li>
+                            <li>註冊性質：根據《慈善機構及公眾信託基金名冊》第88條註冊的非營利組織</li>
+                            <li>核心定位：透過教育科技及AI教學商業決策管理模擬平台，推行終身商業管理學習</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>核心理念</td>
+                    <td>
+                        傳統商業教學存在「專業術語門檻高、數據分析耗時、策略制定憑直覺」等痛點，AI生成內容工具的崛起為解決這些問題提供強大方案，可協助學生快速理解概念、深度分析數據、模擬策略後果，並高效產出專業報告。
+                    </td>
+                </tr>
+                <tr>
+                    <td>傳統教學痛點</td>
+                    <td>
+                        <ul>
+                            <li>術語門檻高：「息稅折舊攤銷前利潤(EBITDA)」「公允價值避險」「杜邦分析」等術語抽象、脫離真實場景，學生依賴死記硬背，理解僅停留在表面。</li>
+                            <li>數據分析耗時：財務報告資訊密度高，需耗費數小時手動分類、計算與交叉比對，學生無餘力深入思考數據背後趨勢。</li>
+                            <li>策略憑直覺：缺乏即時市場數據、情境模擬工具與歷史績效基準，學生制訂財務策略時多依主觀直覺或簡化框架。</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>AI工具解決方案</td>
+                    <td>
+                        具備大型語言模型（LLM）、機器學習（ML）與數據可視化能力的AI驅動工具，整合「理解、分析、模擬、輸出」四大環節，形成無縫學習循環，可直接對應解決傳統教學的三大痛點。
+                    </td>
+                </tr>
+                <tr>
+                    <td>革新性學習體驗</td>
+                    <td>
+                        <ul>
+                            <li>師生雙贏：Ask AI功能打造互動且引人入勝的教育環境，為教學帶來前所未有的學習機會。</li>
+                            <li>對講師：整合分析參與團隊的原始數據，提供有價值的分析見解，協助識別趨勢、優勢與改進空間，從而製訂更具針對性的教學策略。</li>
+                            <li>對學生：透過互動模式獲得即時反饋，明確自身強弱項；提升分析複雜商業情境的能力，基於真實數據做出明智決策，強化批判性思維與決策力；結合沉浸式模擬體驗主動實驗不同策略，觀察決策即時後果，深化理論應用，為應對現實挑戰做準備。</li>
+                            <li>核心價值：互動式、數據驅動的學習模式深化對商業原則的理解，使教育更具相關性與影響力。</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>目標與目的</td>
+                    <td>
+                        <ul>
+                            <li>總目標：回應教育局推廣的科技教育方針，為推行科技教育的教師提供支援及培訓。</li>
+                            <li>具體目標1：協助教師將模擬營運的概念及平台應用於教學，提升學生善用科技與資訊科技的能力，強化自主學習、解難、協作、計算思維能力，培育創意、創新及創業精神，養成具操守的資訊科技使用者，實現終身學習與全人發展。</li>
+                            <li>具體目標2：促進教師在科技教育方面的專業發展，提升教師運用科技工具的教學能力。</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>體驗連結</td>
+                    <td>
+                        <a href="https://mbs.top-boss.com/demo/en" target="_blank">mbs.top-boss.com/demo/en</a>（點擊可體驗模擬平台）
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- 英文內容頁 - 表格頂列（深綠）、右列（淺紫）配色，保持視覺統一 -->
+        <div id="en-tab" class="tab-content">
+            <table>
+                <tr>
+                    <th>Category</th> <!-- 頂列：深綠色 -->
+                    <th>Detailed Content</th> <!-- 頂列：深綠色 -->
+                </tr>
+                <tr>
+                    <td>Organization Basic Info</td> <!-- 左列：淺綠色 -->
+                    <td> <!-- 右列：淺紫色 -->
+                        <ul>
+                            <li>Company Name: International Association of Business Management Simulation</li>
+                            <li>Establishment Date: August 1, 2022</li>
+                            <li>Founders: Mr. Chan Kwai Nam Michael (founder of Icetech HK Company Limited since 2011 and Icetech Education since 2020), and 12 students from five universities in Hong Kong</li>
+                            <li>Registration Status: Registered nonprofit organization under Section 88 of the Charitable Institutions and Public Trusts Registry</li>
+                            <li>Core Positioning: Advocate for lifelong business management learning through educational technology and AI, utilizing a simulation platform for business decision management</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Core Philosophy</td>
+                    <td>
+                        Traditional business teaching faces pain points such as "high barriers to professional terminology, time-consuming data analysis, and intuition-driven strategy formulation". The rise of AI-generated content tools provides powerful solutions to address these issues, helping students quickly grasp concepts, deeply analyze data, simulate strategic outcomes, and efficiently produce professional reports.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Traditional Teaching Pain Points</td>
+                    <td>
+                        <ul>
+                            <li>High Terminology Barriers: Terms like "Earnings Before Interest, Taxes, Depreciation, and Amortization (EBITDA)", "Fair Value Hedge", and "DuPont Analysis" are abstract and disconnected from real business scenarios. Students often rely on rote memorization, leading to superficial understanding.</li>
+                            <li>Time-Consuming Data Analysis: Financial reports have high information density, requiring hours of manual classification, calculation, and cross-referencing. Students have no energy left to think deeply about the trends behind the data.</li>
+                            <li>Intuition-Driven Strategy: Without real-time market data, situational simulation tools, and historical performance benchmarks, students often rely on subjective intuition or simplified frameworks when formulating financial strategies.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>AI Tool Solutions</td>
+                    <td>
+                        AI-driven tools with large language models (LLM), machine learning (ML), and data visualization capabilities integrate the four links of "understanding, analysis, simulation, and output" to form a seamless learning loop, which can directly address the three pain points of traditional teaching.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Innovative Learning Experience</td>
+                    <td>
+                        <ul>
+                            <li>Win-Win for Teachers & Students: The Ask AI feature creates an interactive and engaging educational environment, offering unprecedented learning opportunities for teaching.</li>
+                            <li>For Lecturers: It consolidates and analyzes raw data from participating teams, provides valuable analytical insights to help identify trends, strengths, and areas for improvement, thereby formulating more targeted teaching strategies.</li>
+                            <li>For Students: They receive immediate feedback through an interactive model to clarify their strengths and weaknesses; enhance the ability to analyze complex business scenarios, make informed decisions based on real data, and strengthen critical thinking and decision-making skills; proactively experiment with different strategies combined with immersive simulation experiences, observe real-time consequences of decisions, deepen theoretical application, and prepare for real-world challenges.</li>
+                            <li>Core Value: The interactive and data-driven learning model deepens the understanding of business principles, making education more relevant and impactful.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Goals & Objectives</td>
+                    <td>
+                        <ul>
+                            <li>Overall Goal: Respond to the technology education policy promoted by the Education Bureau, and provide support and training for teachers implementing technology education.</li>
+                            <li>Specific Goal 1: Assist teachers in integrating the concepts and platforms of simulated operations into teaching, enhance students' ability to use technology and information technology, strengthen autonomous learning, problem-solving, collaboration, and computational thinking skills, foster creativity, innovation, and entrepreneurial spirit, cultivate ethical information technology users, and achieve lifelong learning and holistic development.</li>
+                            <li>Specific Goal 2: Promote teachers' professional development in technology education and improve their ability to use technology tools for teaching.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Experience Link</td>
+                    <td>
+                        <a href="https://mbs.top-boss.com/demo/en" target="_blank">mbs.top-boss.com/demo/en</a> (Click to experience the simulation platform)
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- 標籤切換腳本 - 確保按鈕狀態與內容同步 -->
+    <script>
+        function switchTab(tabId, activeBtn) {
+            // 1. 隱藏所有內容頁
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active');
+            }
+            // 2. 重置所有標籤按鈕樣式
+            const allBtns = document.getElementsByClassName('tab-btn');
+            for (let i = 0; i < allBtns.length; i++) {
+                allBtns[i].classList.remove('active');
+                // 恢復按鈕默認色
+                if (allBtns[i].id === 'tc-tab-btn') {
+                    allBtns[i].style.backgroundColor = '#60a5fa';
+                } else if (allBtns[i].id === 'en-tab-btn') {
+                    allBtns[i].style.backgroundColor = '#f97316';
+                }
+            }
+            // 3. 激活當前按鈕（加深顏色+懸浮效果）
+            activeBtn.classList.add('active');
+            if (activeBtn.id === 'tc-tab-btn') {
+                activeBtn.style.backgroundColor = '#4299e1';
+            } else if (activeBtn.id === 'en-tab-btn') {
+                activeBtn.style.backgroundColor = '#ea580c';
+            }
+            // 4. 顯示目標內容頁
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
