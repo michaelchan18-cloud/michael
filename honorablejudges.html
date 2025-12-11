@@ -21,63 +21,71 @@
             text-align: center;
             color: white;
             cursor: pointer;
+            width: 20%; /* Equal width for all tabs */
+            transition: opacity 0.3s;
         }
         th.blue {
             background-color: #003366; /* Dark Blue */
         }
-        th.red {
-            background-color: #8B0000; /* Dark Red */
+        th.green {
+            background-color: #005f00; /* Dark Green */
         }
         th.orange {
             background-color: #FF8C00; /* Dark Orange */
         }
-        th.green {
-            background-color: #005f00; /* Dark Green */
-        }
         th.purple {
             background-color: #800080; /* Dark Purple */
+        }
+        th.red {
+            background-color: #8B0000; /* Dark Red */
         }
         td {
             padding: 15px;
             border: 1px solid #ddd;
             display: none; /* Initially hide all details */
             text-align: left;
+            width: 100%; /* Full width for biography */
         }
         .active {
             display: table-cell; /* Show only active content */
         }
+        .dimmed {
+            opacity: 0.5; /* Dimmed effect */
+        }
         h3 {
             margin: 0;
+        }
+        h1 {
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-<h1>Honorable Judges</h1>
-<table>
+<h1>Honorable Judges of Chinese Mainland, Hong Kong, and Macao Enterprises Business Case Analysis Competition 2025</h1>
+<table id="judgesTable">
     <thead>
         <tr>
-            <th class="blue" onclick="showContent('patrick')">Patrick S. Lee</th>
-            <th class="red" onclick="showContent('kay')">Kay Tai</th>
-            <th class="orange" onclick="showContent('johnson')">Johnson Lo</th>
-            <th class="green" onclick="showContent('ben')">Ben Kwok</th>
-            <th class="purple" onclick="showContent('aaron')">Aaron Hui</th>
+            <th class="blue" onclick="showContent('aaron', this)">Aaron Hui</th>
+            <th class="green" onclick="showContent('ben', this)">Ben Kwok</th>
+            <th class="orange" onclick="showContent('johnson', this)">Johnson Lo</th>
+            <th class="purple" onclick="showContent('kay', this)">Kay Tai</th>
+            <th class="red" onclick="showContent('patrick', this)">Patrick S. Lee</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td id="patrick" class="active">
-                <h3>Patrick S. Lee</h3>
-                <p>Patrick S. Lee is a seasoned business leader and innovation advocate with more than 30 years of experience in multinational management, marketing, and technology venture building. His expertise spans renewable energy, smart city solutions, green technology, location-based services, and fintech.</p>
-                <p>Mr. Lee is the co-founder or senior executive of several technology and green-tech ventures, including Rabbit Energy and Asia Carbon Neutral. He also serves as a strategic advisor to companies such as Wizpresso and EPRO Advance Technology, contributing to the commercialization and regional adoption of innovative technologies.</p>
-                <p>Prior to entering the innovation and technology sector, he held senior leadership roles at major multinational corporations, including CEO for North Asia & Greater China at Inchcape. He has also worked at Coca-Cola and Procter & Gamble, leading various brand and market development initiatives across Asia and North America.</p>
-                <p>Beyond business, Mr. Lee actively participates in public service as an honorary fellow of the Asia-Pacific Institute of Business at The Chinese University of Hong Kong and as a member of various committees promoting sustainable development and innovation.</p>
+            <td id="aaron" class="active">
+                <h3>Aaron Hui</h3>
+                <p>Aaron Hui graduated from Middlesex University and specializes in technical solutions, sales, and business development. He has worked at major companies, including Microsoft, and has over 20 years of experience in digital transformation and process automation.</p>
+                <p>Mr. Hui is committed to supporting local and international nonprofit organizations. He serves as a mentor for various programs and is actively involved in initiatives that empower youth and communities in Hong Kong.</p>
+                <p>His research interests include low-code/no-code platforms and citizen development strategies, contributing to a more digital and inclusive future for businesses.</p>
             </td>
-            <td id="kay">
-                <h3>Kay Tai</h3>
-                <p>Kay Tai is an Associate Principal Consultant at the Hong Kong Productivity Council. He is a passionate advocate for social innovation and thrives on empowering entrepreneurs to create real-world impact.</p>
-                <p>With extensive experience in program management, design thinking, and lean startup methodologies, he excels at developing and implementing strategies that drive positive change. He has spearheaded numerous social entrepreneurship programs, providing comprehensive support through seed funding, training, and mentorship.</p>
-                <p>His belief in entrepreneurship as a powerful force for good drives his commitment to nurturing the next generation of changemakers. He collaborates with incubators and stakeholders to provide valuable resources and opportunities for aspiring entrepreneurs.</p>
+            <td id="ben">
+                <h3>Ben Kwok</h3>
+                <p>Dr. Ben Kwok is a Training and Education Advisor at the Vocational Training Council. He has received the "Staff Excellent Award" for his contributions, providing valuable learning opportunities related to the Greater Bay Area.</p>
+                <p>Dr. Kwok is highly respected for his professionalism and care for students. He invests extra time into arranging extracurricular activities, such as seminars and competitions, to enhance students' professional knowledge and skills.</p>
+                <p>Alongside his work in education, he is active in various community organizations, contributing to youth development and public service initiatives.</p>
             </td>
             <td id="johnson">
                 <h3>Johnson Lo</h3>
@@ -85,32 +93,50 @@
                 <p>Previously, he served as a regional senior executive at SHI International Inc., helping to build connections with Fortune 500 companies. His work involves intellectual property licensing services, franchising, and brand security management services.</p>
                 <p>Mr. Lo is deeply involved in community service, assisting social enterprises in implementing innovative solutions to address poverty and social exclusion in Hong Kong. He is also a visiting lecturer at various institutions and a columnist for career-related media.</p>
             </td>
-            <td id="ben">
-                <h3>Ben Kwok</h3>
-                <p>Dr. Ben Kwok is a Training and Education Advisor at the Vocational Training Council. He has received the "Staff Excellent Award" for his contributions to improving the business curriculum and providing significant learning opportunities related to the Greater Bay Area.</p>
-                <p>Dr. Kwok is highly respected for his professionalism and care for students. He invests extra time into arranging extracurricular activities, such as seminars and competitions, to enhance students' professional knowledge and skills.</p>
-                <p>Alongside his work in education, he is active in various community organizations, contributing to youth development and public service initiatives.</p>
+            <td id="kay">
+                <h3>Kay Tai</h3>
+                <p>Kay Tai is an Associate Principal Consultant at the Hong Kong Productivity Council. As a passionate advocate for social innovation, he thrives on empowering entrepreneurs to create real-world impact.</p>
+                <p>With extensive experience in program management, design thinking, and lean startup methodologies, he excels at developing and implementing strategies that drive positive change. He has spearheaded numerous social entrepreneurship programs, providing comprehensive support through seed funding, training, and mentorship.</p>
             </td>
-            <td id="aaron">
-                <h3>Aaron Hui</h3>
-                <p>Aaron Hui graduated from Middlesex University and specializes in technical solutions, sales, and business development. He has worked at major companies, including Microsoft, and has over 20 years of experience in digital transformation and process automation.</p>
-                <p>Mr. Hui is committed to supporting local and international nonprofit organizations. He serves as a mentor for various programs and is actively involved in initiatives that empower youth and communities in Hong Kong.</p>
-                <p>His research interests include low-code/no-code platforms and citizen development strategies, contributing to a more digital and inclusive future for businesses.</p>
+            <td id="patrick">
+                <h3>Patrick S. Lee</h3>
+                <p>Patrick S. Lee is a seasoned business leader and innovation advocate with more than 30 years of experience in multinational management, marketing, and technology venture building. His expertise spans renewable energy, smart city solutions, green technology, location-based services, and fintech.</p>
+                <p>Mr. Lee is the co-founder or senior executive of several technology and green-tech ventures, including Rabbit Energy and Asia Carbon Neutral. He also serves as a strategic advisor to companies such as Wizpresso and EPRO Advance Technology, contributing to the commercialization and regional adoption of innovative technologies.</p>
+                <p>Prior to entering the innovation and technology sector, he held senior leadership roles at major multinational corporations, including CEO for North Asia & Greater China at Inchcape. He has also worked at Coca-Cola and Procter & Gamble, leading various brand and market development initiatives across Asia and North America.</p>
+                <p>Beyond business, Mr. Lee actively participates in public service as an honorary fellow of the Asia-Pacific Institute of Business at The Chinese University of Hong Kong and as a member of various committees promoting sustainable development and innovation.</p>
             </td>
         </tr>
     </tbody>
 </table>
 
 <script>
-    function showContent(tabId) {
+    function showContent(tabId, selectedTab) {
         const contents = document.querySelectorAll('td');
+        const tabs = document.querySelectorAll('th');
+
+        // Hide all content
         contents.forEach(content => {
             content.classList.remove('active');
         });
+
+        // Show selected content
         document.getElementById(tabId).classList.add('active');
+
+        // Dim other tabs
+        tabs.forEach(tab => {
+            tab.classList.add('dimmed'); // Add dimmed effect
+        });
+        selectedTab.classList.remove('dimmed'); // Remove dimmed effect from selected tab
+
+        // Move selected tab to the beginning
+        const row = selectedTab.parentNode; // Get the current row
+        const firstTab = row.firstElementChild; // Get the first tab
+
+        // Swap positions
+        row.insertBefore(selectedTab, firstTab);
     }
     // Show the first tab by default
-    showContent('patrick');
+    showContent('aaron', document.querySelector('.blue'));
 </script>
 
 </body>
