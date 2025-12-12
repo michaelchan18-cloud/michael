@@ -53,10 +53,26 @@
             opacity: 0.5; /* Dimmed effect */
         }
         h3 {
-            margin: 0;
+            margin: 0 0 15px 0;
+            font-size: 1.2em;
         }
         h1 {
             text-align: center;
+            margin-bottom: 25px;
+        }
+        /* Style for Chinese bio list */
+        td ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        td p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        /* Add slight separation between Chinese and English content */
+        .lang-separator {
+            margin: 15px 0;
+            border-bottom: 1px solid #eee;
         }
     </style>
 </head>
@@ -76,30 +92,89 @@
     <tbody>
         <tr>
             <td id="aaron" class="active">
-                <h3>Aaron Hui</h3>
+                <h3>Aaron Hui 许汉忠</h3>
+                <!-- Chinese Bio (Simplified) -->
+                <p>许汉忠先生毕业于密德萨斯大学，在技术应用和销售及业务拓展方面拥有丰富的经验。他曾在微软、Nintex、AgilePoint以及不同类型的企业和资讯科技顾问公司工作。他成功帮助本地中小企业和全球财富500强的客户解决业务关键问题。</p>
+                <p>许先生曾任教香港中文大学－东华书院、岭南大学持续进修学院，主要教授科技相关的学科，学生为不同领域的在职人士。</p>
+                <p>他的研究兴趣是数字化转型、流程自动化、低代码/无代码平台以及公民开发策略与实践。他在上述领域拥有二十年的实践经验。许先生也是国际微软合作伙伴协会大中华区的代表。</p>
+                <p>十多年来，他致力支持本地和国际非营利机构。以下是其中一部分：</p>
+                <ul>
+                    <li>智慧香港扶轮社 - 创会会员</li>
+                    <li>和富领袖网络 - 分会顾问召集人</li>
+                    <li>青年成就香港部 - 商界义工</li>
+                    <li>香港青少年服务处 - 伴我创Teen才培育计划 - 义务导师</li>
+                    <li>香港专上学院 - 商界导师</li>
+                    <li>香港大学专业进修学院 - 校友会委员义务秘书</li>
+                </ul>
+                
+                <!-- Separator between Chinese and English -->
+                <div class="lang-separator"></div>
+
+                <!-- Original English Bio -->
                 <p>Aaron Hui graduated from Middlesex University and specializes in technical solutions, sales, and business development. He has worked at major companies, including Microsoft, and has over 20 years of experience in digital transformation and process automation.</p>
                 <p>Mr. Hui is committed to supporting local and international nonprofit organizations. He serves as a mentor for various programs and is actively involved in initiatives that empower youth and communities in Hong Kong.</p>
                 <p>His research interests include low-code/no-code platforms and citizen development strategies, contributing to a more digital and inclusive future for businesses.</p>
             </td>
             <td id="ben">
-                <h3>Ben Kwok</h3>
+                <h3>Ben Kwok 郭耀华博士</h3>
+                <!-- Chinese Bio (Simplified) -->
+                <p>郭耀华博士获VTC(职业训练局)颁发「杰出员工奖 (Staff Excellent Award)」，以嘉奖多年来对 VTC的挚诚服务及杰出贡献，例如透过与香港及内地业界之间的关系网络，为学生提供大量跟大湾区相关的学习机会。</p>
+                <p>郭博士亦致力改良商业学科课程，他的专业精神及对学生的关爱深得学生的高度赞扬。</p>
+                <p>郭博士素来对学生关怀备至，他经常付出额外的时间和努力安排学生参与课外教学活动，如网上研讨会及比赛等，以培育学生的专业知识。</p>
+                
+                <!-- Separator between Chinese and English -->
+                <div class="lang-separator"></div>
+
+                <!-- Original English Bio -->
                 <p>Dr. Ben Kwok is a Training and Education Advisor at the Vocational Training Council. He has received the "Staff Excellent Award" for his contributions, providing valuable learning opportunities related to the Greater Bay Area.</p>
                 <p>Dr. Kwok is highly respected for his professionalism and care for students. He invests extra time into arranging extracurricular activities, such as seminars and competitions, to enhance students' professional knowledge and skills.</p>
                 <p>Alongside his work in education, he is active in various community organizations, contributing to youth development and public service initiatives.</p>
             </td>
             <td id="johnson">
-                <h3>Johnson Lo</h3>
+                <h3>Johnson Lo 卢翰豪先生</h3>
+                <!-- Chinese Bio (Simplified) -->
+                <p>卢翰豪先生是现任英国特许市务学会香港分会主席、国际食品安全协会副主席，拥有超过20年的亚太区市场开发经验。卢先生持有英国莱斯特大学硕士学位，同时获认证为可持续发展经理及特许市务师。</p>
+                <p>卢先生曾任SHI International Inc.亚太区高级管理人员，协助公司在亚太地区拓展业务，管理多家《财富》500强企业客户。自2011年起，卢先生开始创业之路，先后创立Sprouts Concepts International，提供知识产权授权、特许经营及品牌安全管理服务，和创立企业 KOLB LIFE 网煮，一家在香港从事餐饮及零售服务的社会企业。</p>
+                <p>卢先生积极参与社区服务，协助社会企业推行创新方案，以应对香港的贫困等社会问题。他同时担任香港理工大学专业及持续教育学院的客座讲师，并为招聘网站cpjobs.com撰写专栏文章。</p>
+                
+                <!-- Separator between Chinese and English -->
+                <div class="lang-separator"></div>
+
+                <!-- Original English Bio -->
                 <p>Johnson Lo is the Chairman of Chartered Institue of Marketing Hong Kong Chapter, Vice Chairman of International Food Safety Association, with over 20 years of experience in developing the Asia-Pacific market. He holds a Master's degree from the University of Leicester, UK, and is certified as a Sustainability Manager and Chartered Marketer.</p>
                 <p>Previously, he served as a regional senior executive at SHI International Inc., helping to build Asia Pacific region with Fortune 500 companies customer. Since 2011, Mr. Lo started his entrepreneur journey by founding Sprouts Concepts International provide intellectual property licensing services, franchising, and brand security management services.  And from 2018, Mr Lo found another start up KOLB LIFE, a social enterprise in Hong Kong that involves catering and retailing services.</p>
                 <p>Mr. Lo is deeply involved in community service, assisting social enterprises in implementing innovative solutions to address poverty and social exclusion in Hong Kong. He is also a visiting lecturer at The Hong Kong Polytechnic University, College of Professional and Continuing Education and a columnist of cpjobs.com.</p>
             </td>
             <td id="kay">
-                <h3>Kay Tai</h3>
-                <p>Kay Tai is an Associate Principal Consultant at the Hong Kong Productivity Council. As a passionate advocate for social innovation, he thrives on empowering entrepreneurs to create real-world impact.</p>
-                <p>With extensive experience in program management, design thinking, and lean startup methodologies, he excels at developing and implementing strategies that drive positive change. He has spearheaded numerous social entrepreneurship programs, providing comprehensive support through seed funding, training, and mentorship.</p>
+                <h3>Kay Tai 戴名扬先生</h3>
+                <!-- Chinese Bio (Simplified) -->
+                <p>戴名扬先生<br>生产力局新世代企业及技能发展部副首席顾问</p>
+                <p>作为社会创新的倡导者，我致力于赋能企业家，创造实际的影响力。</p>
+                <p>在生产力局和香港理工大学等机构的职业生涯中，我主理了多个成功的社会创业计划及比赛，通过种子资金、培训、指导和商业顾问服务，为初创者提供全面支持，合作伙伴包括孵化器、加速器、投资者和持份者，使我能够将企业家与宝贵的资源和机会联系起来。</p>
+                <p>我持有ESG规划、项目管理和指导的认证，具备全方位的技能组合，以推动可持续和社会负责的倡议。我坚信企业家精神可以成为改变社会的强大力量，并致力于培养下一代变革者，塑造更美好的明天。</p>
+                
+                <!-- Separator between Chinese and English -->
+                <div class="lang-separator"></div>
+
+                <!-- Original English Bio -->
+                <p>Kay Tai - Associate Principal Consultant<br>InnoPreneur and FutureSkills Division, Hong Kong Productivity Council</p>
+                <p>As a passionate advocate for social innovation, I thrive on empowering entrepreneurs to create real-world impact.</p>
+                <p>Throughout my career at organizations like the Hong Kong Productivity Council and The Hong Kong Polytechnic University, I've spearheaded successful social entrepreneurship programs and competitions, providing comprehensive support to startups through seed funding, training, mentorship, and business consultancy services. My partners include incubators, accelerators, investors and stakeholders, enabling me to connect entrepreneurs with valuable resources and opportunities.</p>
+                <p>Certified in ESG planning, project management, and mentoring, I bring a well-rounded skillset to drive sustainable and socially responsible initiatives. I am driven by the belief that entrepreneurship can be a powerful force for social change, and I am committed to nurturing the next generation of changemakers who will shape a better tomorrow.</p>
             </td>
             <td id="patrick">
-                <h3>Patrick S. Lee</h3>
+                <h3>Patrick S. Lee 李世贤先生</h3>
+                <!-- Chinese Bio (Simplified) -->
+                <p>李世贤先生为资深企业领袖及创新创业推动者，拥有逾三十年跨国企业管理、市场营销及科创项目孵化经验，涉猎范围涵盖新能源、智慧城市、绿色科技、位置服务及金融科技等多个前瞻产业。</p>
+                <p>李先生现为多间创科与绿色科技企业的联合创办人或高层，包括 Rabbit Energy、Asia Carbon Neutral 等，并于 Wizpresso 及 EPRO Advance Technology 担任策略顾问，积极推动区内创新技术的应用与商业化。</p>
+                <p>在投身创新科技前，李先生曾于多家跨国企业担任高层管理职务，包括英之杰（北亚及大中华区行政总裁）、天祥检测认证（大中华区联席行政总裁）及可口可乐中国装瓶商嘉里饮品（集团销售及市场总经理）等，累积深厚的策略管理、区域业务发展及大型团队领导经验。他亦曾于宝洁（P&G）等国际企业任职，并在北美及亚洲多地负责品牌策划及市场拓展。</p>
+                <p>除企业界外，李先生长期参与公共服务及商界专业社群建设，现为香港中文大学亚太工商研究所名誉院士、香港总商会智慧城市工作小组召集人、职业训练局创新及科技培训委员会成员，亦曾出任香港测试认证行业协会主席及中大商学院「企业创新指数」指导委员会主席。</p>
+                <p>李世贤先生拥有香港中文大学工商管理学士及工商管理硕士（市场学）学位。</p>
+                
+                <!-- Separator between Chinese and English -->
+                <div class="lang-separator"></div>
+
+                <!-- Original English Bio -->
                 <p>Patrick S. Lee is a seasoned business leader and innovation advocate with more than 30 years of experience in multinational management, marketing, and technology venture building. His expertise spans renewable energy, smart city solutions, green technology, location-based services, and fintech.</p>
                 <p>Mr. Lee is the co-founder or senior executive of several technology and green-tech ventures, including Rabbit Energy and Asia Carbon Neutral. He also serves as a strategic advisor to companies such as Wizpresso and EPRO Advance Technology, contributing to the commercialization and regional adoption of innovative technologies.</p>
                 <p>Prior to entering the innovation and technology sector, he held senior leadership roles at major multinational corporations, including CEO for North Asia & Greater China at Inchcape. He has also worked at Coca-Cola and Procter & Gamble, leading various brand and market development initiatives across Asia and North America.</p>
